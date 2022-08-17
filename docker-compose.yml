@@ -1,0 +1,27 @@
+version: '3.4'
+networks:
+    default:
+        driver: bridge
+services:
+  stor-gateway:
+    tty: true
+    image: banandcadencedatasoft/stor-gateway:latest
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+    volumes:
+      - ${FBNK_SHARE}:/home/share
+      - ${FBNK_CONFIG}:/home/config
+      - ${FBNK_BACKUP}:/home/backup            
+    entrypoint: /bin/sh -c "/home/root/shares.sh"
+    ports:
+      - 137:137
+      - 138:138
+      - 139:139
+      - 389:389
+      - 901:901
+      - 445:445
