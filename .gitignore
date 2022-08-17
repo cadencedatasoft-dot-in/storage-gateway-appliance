@@ -1,0 +1,5 @@
+/.vscode
+/.env.swp
+/.env
+/generated_env
+/generated_rclone.conf
