@@ -83,4 +83,4 @@ nkloudshowBanner
 getS3Confiuration
 getVirtaulVolumeConf
 
-docker-compose up
+docker compose up
