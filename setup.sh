@@ -84,6 +84,7 @@ getS3Confiuration
 getVirtaulVolumeConf
 
 docker compose up
+echo "Attempting to recover from failure... Please stand by it should take just a few more moments."
 sleep 10s
 didapplstart=$(docker compose ls | grep "stor-gateway")
 if [ -z "$didapplstart" ]; then
