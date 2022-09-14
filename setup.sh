@@ -72,7 +72,7 @@ function applyChanges(){
     echo "and run the setup"
     echo "Apply changes now?(y/n):"
     read applychanges
-    if [ $applychanges = 'y' ]; then
+    if [ $applychanges == 'y' ]; then
         cp -f ./generated_env ./.env
         source ./.env
         cp -f ./generated_rclone.conf $1/rclone.conf
@@ -84,3 +84,9 @@ getS3Confiuration
 getVirtaulVolumeConf
 
 docker compose up
+sleep 10s
+didapplstart=$(docker compose ls | grep "stor-gateway")
+if [ -z "$didapplstart" ]; then
+    sleep 10s
+    docker compose up
+fi
